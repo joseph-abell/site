@@ -2,13 +2,12 @@ const path = require("path");
 const pathPrefix = "/";
 // Change me
 const siteMetadata = {
-  title: "Foam Template for Gatsby Theme Primer Wiki",
-  shortName: "Wiki",
+  title: "Joseph Abell",
+  shortName: "Joe Abell",
   description:
-    "Another Foam template that use gatsby-theme-primer-wiki, Welcome to your new Foam Knowledge Base!",
-  twitterName: "theowenyoung",
+    "Knowledge map and CV from Joseph Abell",
   imageUrl: "/graph-visualisation.jpg",
-  siteUrl: "https://demo-foam.owenyoung.com",
+  siteUrl: "https://josephabell.co.uk",
 };
 module.exports = {
   siteMetadata,
@@ -26,15 +25,11 @@ module.exports = {
         nav: [
           {
             title: "Github",
-            url: "https://github.com/theowenyoung/foam-template-gatsby-theme-primer-wiki/",
-          },
-          {
-            title: "Twitter",
-            url: "https://twitter.com/theowenyoung",
+            url: "https://github.com/joseph-abell/site/",
           },
         ],
         editUrl:
-          "https://github.com/theowenyoung/foam-template-gatsby-theme-primer-wiki/tree/main/",
+          "https://github.com/joseph-abell/site/tree/main/",
       },
     },
     {
