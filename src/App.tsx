@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import CV from './pages/CV';
 import Doodles from './pages/Doodles';
 import Themes from './pages/Themes';
+import Sketches from './pages/Sketches';
 
 import { ThemeProvider } from "./Theme";
 
@@ -22,6 +23,7 @@ const App = () => {
             <Route path='/cv' component={CV} />
             <Route path='/doodles' component={Doodles} />
             <Route path='/doodles/themes' component={Themes} />
+            <Route path='/doodles/sketches' component={Sketches} />
           </Router>
         </ThemeProvider>
       </Suspense>

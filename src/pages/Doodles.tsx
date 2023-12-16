@@ -15,6 +15,9 @@ const Doodles = () => {
         <li>
           <a href="/doodles/themes">Themes</a>
         </li>
+        <li>
+          <a href='/doodles/sketches'>P5.js Sketches</a>
+        </li>
       </ul>
 
     </DefaultLayout>
