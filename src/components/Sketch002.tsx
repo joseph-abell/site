@@ -20,14 +20,14 @@ const Sketch002 = () => {
       p.draw = () => {
         let num = Math.floor( p.random() * 8 )
 
-        if ( num === 0 ) v.add( { x: 1 } )
-        if ( num === 1 ) v.add( { x: 1, y: 1 } )
-        if ( num === 2 ) v.add( { x: -1 } )
-        if ( num === 3 ) v.add( { x: -1, y: 1 } )
-        if ( num === 4 ) v.add( { y: 1 } )
-        if ( num === 5 ) v.add( { y: -1 } )
-        if ( num === 6 ) v.add( { x: 1, y: -1 } )
-        if ( num === 7 ) v.add( { x: -1, y: -1 } )
+        if ( num === 0 ) v.add( { x: 2 } )
+        if ( num === 1 ) v.add( { x: 2, y: 2 } )
+        if ( num === 2 ) v.add( { x: -2 } )
+        if ( num === 3 ) v.add( { x: -2, y: 2 } )
+        if ( num === 4 ) v.add( { y: 2 } )
+        if ( num === 5 ) v.add( { y: -2 } )
+        if ( num === 6 ) v.add( { x: 2, y: -2 } )
+        if ( num === 7 ) v.add( { x: -2, y: -2 } )
 
         p.point( v.x, v.y )
       };
