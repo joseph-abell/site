@@ -48,3 +48,7 @@ export class Vector {
   }
 }
 
+export const applyForce = ( force: Vector, acceleration: Vector, mass = 1 ) => {
+  force.divide( mass );
+  acceleration.add( force );
+}

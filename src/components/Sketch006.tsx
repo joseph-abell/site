@@ -39,6 +39,7 @@ const Sketch005 = () => {
         position.y = Math.min( Math.max( 0, position.y ), 200 );
 
         p.ellipse( position.x, position.y, 10 );
+        velocity.multiply( 0 );
       };
     };
     new p5( sketch, ref );

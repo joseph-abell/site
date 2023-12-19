@@ -44,7 +44,7 @@ const Sketches = () => {
         </div>
         <div style={{ width: '200px' }}>
           <Sketch005 />
-          <p>Ball orbits around mouse</p>
+          <p>Ball follows mouse</p>
         </div>
         <div style={{ width: '200px' }}>
           <Sketch006 />

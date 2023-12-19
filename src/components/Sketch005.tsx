@@ -8,6 +8,7 @@ const Sketch005 = () => {
   let position = new Vector( 100, 100 );
   let mouse = new Vector();
   let velocity = new Vector( 0, 0 );
+  let mass = 3;
   let topspeed = 5;
 
   const createSketch = ( ref: HTMLDivElement ) => {
@@ -28,14 +29,13 @@ const Sketch005 = () => {
 
         mouse.subtract( position )
         mouse.normalize()
-        mouse.multiply( 0.3 )
+        mouse.divide( mass )
         velocity.add( mouse );
         velocity.limit( topspeed );
         position.add( velocity );
 
-        // velocity.add( { x: position.x - p.mouseX, y: position.y - p.mouseY } )
-        // position.add( velocity );
         p.ellipse( position.x, position.y, 10 );
+        velocity.multiply( 0 )
       };
     };
     new p5( sketch, ref );
