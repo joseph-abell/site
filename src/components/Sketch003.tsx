@@ -27,6 +27,8 @@ const Sketch003 = () => {
         xOff = xOff + 0.01;
         yOff = yOff + 0.01;
         v.add( { x: num, y: num2 } )
+        v.x = Math.min( Math.max( 0, v.x ), 200 );
+        v.y = Math.min( Math.max( 0, v.y ), 200 );
         p.point( v.x, v.y )
       };
     };

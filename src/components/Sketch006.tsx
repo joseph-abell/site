@@ -1,14 +1,22 @@
 import * as p5 from "p5";
 import { Vector } from '../helpers';
 
+
+
 const Sketch005 = () => {
   let width = 200;
   let height = 200;
 
   let position = new Vector( 100, 100 );
-  let mouse = new Vector();
-  let velocity = new Vector( 0, 0 );
+  let velocity = new Vector( 1.1, 1.1 );
   let topspeed = 5;
+
+  function keyPressed( p: { key?: string } ) {
+    if ( p.key === 'w' ) velocity.add( { y: -1 } )
+    if ( p.key === 's' ) velocity.add( { y: 1 } )
+    if ( p.key === 'a' ) velocity.add( { x: -1 } )
+    if ( p.key === 'd' ) velocity.add( { x: 1 } )
+  }
 
   const createSketch = ( ref: HTMLDivElement ) => {
     const sketch = ( p: p5 ) => {
@@ -23,18 +31,13 @@ const Sketch005 = () => {
       };
 
       p.draw = () => {
-        mouse.x = p.mouseX;
-        mouse.y = p.mouseY;
-
-        mouse.subtract( position )
-        mouse.normalize()
-        mouse.multiply( 0.3 )
-        velocity.add( mouse );
+        keyPressed( p );
         velocity.limit( topspeed );
         position.add( velocity );
 
-        // velocity.add( { x: position.x - p.mouseX, y: position.y - p.mouseY } )
-        // position.add( velocity );
+        position.x = Math.min( Math.max( 0, position.x ), 200 );
+        position.y = Math.min( Math.max( 0, position.y ), 200 );
+
         p.ellipse( position.x, position.y, 10 );
       };
     };
