@@ -2,13 +2,14 @@ import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 import { useTheme } from "../Theme";
 
-const DefaultTemplate = ( { children }: any ) => {
+const DefaultTemplate = ( p: any ) => {
   const [props] = useTheme();
 
+  const className = p.customBackground ? '' : 'container';
   return (
     <>
       <header class={`${props.theme} header`}>
-        <div class="container">
+        <div class='container'>
           <div class="primary">
             <nav class="logo-small nav-left">
               <ul>
@@ -22,8 +23,8 @@ const DefaultTemplate = ( { children }: any ) => {
         </div>
       </header>
 
-      <main class={`${props.theme} main`}>
-        <div class="container">{children}</div>
+      <main class={`${props.theme} main main-no-padding`}>
+        <div class={className}>{p.children}</div>
       </main>
 
       <Footer theme={props.theme} />

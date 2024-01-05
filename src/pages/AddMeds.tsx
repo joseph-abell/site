@@ -1,11 +1,8 @@
 import DefaultLayout from "../layouts/DefaultLayout";
 import { createSignal, onMount } from 'solid-js';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+import { supabase } from '../helpers';
 
 const MedicineTracker = () => {
-console.log(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
   const id = new Date().toISOString().split('T')[0];
   const [breakfast, setBreakfast] = createSignal(false);
   const [lunch, setLunch] = createSignal(false);

@@ -11,6 +11,7 @@ import Doodles from './pages/Doodles';
 import Themes from './pages/Themes';
 import Sketches from './pages/Sketches';
 import AddMeds from './pages/AddMeds';
+import Meds from './pages/Meds';
 
 import { ThemeProvider } from "./Theme";
 
@@ -26,6 +27,7 @@ const App = () => {
             <Route path='/doodles' component={Doodles} />
             <Route path='/doodles/themes' component={Themes} />
             <Route path='/doodles/sketches' component={Sketches} />
+            <Route path='/doodles/meds' component={Meds} />
           </Router>
         </ThemeProvider>
       </Suspense>

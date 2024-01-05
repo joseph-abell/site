@@ -1,3 +1,5 @@
+import { createClient } from '@supabase/supabase-js';
+
 export class Vector {
   x: number = 0;
   y: number = 0;
@@ -52,3 +54,5 @@ export const applyForce = ( force: Vector, acceleration: Vector, mass = 1 ) => {
   force.divide( mass );
   acceleration.add( force );
 }
+
+export const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
