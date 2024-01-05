@@ -8,19 +8,16 @@ const MedicineTracker = () => {
   const [lunch, setLunch] = createSignal(false);
   const [dinner, setDinner] = createSignal(false);
 
-  // Function to fetch and update the medicine intake from Supabase
   const fetchMedicineIntake = async () => {
-    // Replace 'medicinetracker' with your actual table name in Supabase
     const { data, error } = await supabase
       .from('medicineTracker')
       .select()
       .eq('id', id)
-      .maybeSingle(); // Filter by today's date
+      .maybeSingle();
 
     if (error) {
       console.error('Error fetching medicine intake:', error);
     } else {
-      // Update the signals with the fetched data or default to false
       if (data) {
         const { breakfast, lunch, dinner } = data;
         setBreakfast(breakfast);
@@ -30,15 +27,12 @@ const MedicineTracker = () => {
     }
   };
 
-  // Fetch the medicine intake on component mount
   onMount(fetchMedicineIntake);
 
   const onFormSubmit = async (e: any) => {
     e.preventDefault();
 
-    console.log('submitting')
-    // Replace 'medicinetracker' with your actual table name in Supabase
-    const result = await supabase.from('medicineTracker').upsert([
+    await supabase.from('medicineTracker').upsert([
       {
         id,
         breakfast: breakfast(),
@@ -46,8 +40,6 @@ const MedicineTracker = () => {
         dinner: dinner(),
       },
     ]).select();
-
-    console.log(result);
   };
 
   // Return your component UI here
