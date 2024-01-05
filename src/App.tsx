@@ -23,7 +23,7 @@ const App = () => {
           <Router>
             <Route path='/' component={Home} />
             <Route path='/cv' component={CV} />
-            <Route path='/addMeds' component={AddMeds} />
+            <Route path='/add-meds' component={AddMeds} />
             <Route path='/doodles' component={Doodles} />
             <Route path='/doodles/themes' component={Themes} />
             <Route path='/doodles/sketches' component={Sketches} />
