@@ -1,7 +1,7 @@
 import { createSignal } from 'solid-js';
 import { supabase } from '../helpers';
 
-const AddPriority = () => {
+const AddPriority = (p: any) => {
   const [label, setLabel] = createSignal('');
   const [importance, setImportance] = createSignal(0);
   const [urgency, setUrgency] = createSignal(0);
@@ -10,9 +10,12 @@ const AddPriority = () => {
     const { data, error } = await supabase
       .from('priorities')
       .insert([{ name: label, importance, urgency }]);
+
     if (error) {
       console.error('Error adding data:', error);
     }
+
+    p.refreshData()
   };
 
   const handleSubmit = async (e: any) => {

@@ -85,7 +85,7 @@ const Priorities = () => {
                 />
             </div>
             <PriorityList priorities={data} markAsDone={markAsDone} />
-            <AddPriority />
+            <AddPriority refreshData={getData}/>
         </div>
     </DefaultTemplate>
   );
