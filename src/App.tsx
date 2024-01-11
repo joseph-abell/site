@@ -14,6 +14,7 @@ import AddMeds from './pages/AddMeds';
 import Meds from './pages/Meds';
 
 import { ThemeProvider } from "./Theme";
+import Priorities from "./pages/Priorities";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/doodles/themes' component={Themes} />
             <Route path='/doodles/sketches' component={Sketches} />
             <Route path='/doodles/meds' component={Meds} />
+            <Route path='/priorities' component={Priorities} />
           </Router>
         </ThemeProvider>
       </Suspense>
