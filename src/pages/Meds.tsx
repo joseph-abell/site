@@ -31,7 +31,7 @@ const HorizontalLinesSVG = () => {
     const [days] = createResource(fetchData);
     document.title = 'Meds - Joseph Abell'
     return (
-        <DefaultLayout customBackground={true}>
+        <DefaultLayout customBackground={true} noMargin={true}>
             <div style={{
                 width: '100%',
                 height: 'calc(100vh - 107px)',

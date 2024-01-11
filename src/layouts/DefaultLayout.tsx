@@ -6,6 +6,8 @@ const DefaultTemplate = ( p: any ) => {
   const [props] = useTheme();
 
   const className = p.customBackground ? '' : 'container';
+  const mainClassName = p.noMargin ? 'main-no-padding main' : 'main' 
+
   return (
     <>
       <header class={`${props.theme} header`}>
@@ -23,7 +25,7 @@ const DefaultTemplate = ( p: any ) => {
         </div>
       </header>
 
-      <main class={`${props.theme} main`}>
+      <main class={`${props.theme} ${mainClassName}`}>
         <div class={className}>{p.children}</div>
       </main>
 
