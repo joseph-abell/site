@@ -23,7 +23,7 @@ const DefaultTemplate = ( p: any ) => {
         </div>
       </header>
 
-      <main class={`${props.theme} main main-no-padding`}>
+      <main class={`${props.theme} main`}>
         <div class={className}>{p.children}</div>
       </main>
 
