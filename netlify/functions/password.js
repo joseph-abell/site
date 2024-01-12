@@ -1,4 +1,5 @@
 exports.handler = async (event) => {
+    console.log(event.body)
     const { userInput } = JSON.parse(event.body);
     const isPotato = userInput.toLowerCase() === "potato";
 

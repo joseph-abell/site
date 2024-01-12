@@ -53,14 +53,14 @@ const Priorities = () => {
   const onPasswordSubmit = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch('https://josephabell.co.uk/netlify/password', {
+    const response = await fetch('https://josephabell.co.uk/.netlify/functions/password', {
         method: 'POST',
         mode: 'cors',
         headers: {
             'Content-Type': 'text/plain',
         },
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({ input: password })
+        body: JSON.stringify({ userInput: password })
     });
     const isCorrectPassword = await response.text()
     console.log(isCorrectPassword);
