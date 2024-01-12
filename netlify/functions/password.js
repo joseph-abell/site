@@ -1,16 +1,15 @@
 exports.handler = async (event) => {
     const { userInput, ...rest } = JSON.parse(event.body);
-    console.log({userInput, rest});
-    const isPotato = userInput?.toLowerCase() === "potato";
+    const isPassword = userInput?.toLowerCase() === "potato";
 
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "http://localhost:8080, https://josephabell.co.uk, https://joseph-abell.netlify.app",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
       },
-      body: JSON.stringify({ isPotato }),
+      body: JSON.stringify({ isPassword }),
     };
   };
   
