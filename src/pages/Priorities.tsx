@@ -53,7 +53,7 @@ const Priorities = () => {
   const onPasswordSubmit = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch('https://n3e3scnpgb.execute-api.eu-north-1.amazonaws.com/default/password', {
+    const response = await fetch('https://josephabell.co.uk/netlify/password', {
         method: 'POST',
         mode: 'cors',
         headers: {
