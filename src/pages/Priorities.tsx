@@ -56,14 +56,18 @@ const Priorities = () => {
     const response = await fetch('https://josephabell.co.uk/.netlify/functions/password', {
         method: 'POST',
         mode: 'cors',
-        headers: {
-            'Content-Type': 'text/plain',
-        },
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({ userInput: password })
-    });
-    const isCorrectPassword = await response.text()
-    console.log(isCorrectPassword);
+        body: JSON.stringify({ userInput: password }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    console.log(response);
   }
 
   return (

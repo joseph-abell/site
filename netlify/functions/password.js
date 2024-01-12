@@ -8,6 +8,7 @@ exports.handler = async (event) => {
       headers: {
         "Access-Control-Allow-Origin": "http://localhost:8080, https://josephabell.co.uk, https://joseph-abell.netlify.app",
         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
       },
       body: JSON.stringify({ isPotato }),
     };
