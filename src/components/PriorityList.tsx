@@ -11,6 +11,7 @@ const PriorityList = (props: any) => {
                         {priority.label}
 
                         <button style={{'margin-left': '10px'}} onClick={() => props.markAsDone(priority.id)}>Hide</button>
+                        <button style={{'margin-left': '10px'}} onClick={() => props.editPriority(priority.id)}>Edit</button>
                     </li>
                 )}
             </For>

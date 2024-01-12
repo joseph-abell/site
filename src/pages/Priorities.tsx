@@ -1,22 +1,32 @@
-import { createSignal, onMount } from 'solid-js';
+import { Show, createSignal, onMount } from 'solid-js';
 import { Chart, Title, Tooltip, Legend, Colors, PointElement, LinearScale} from 'chart.js'
-import { DefaultChart } from 'solid-chartjs'
-import DataLabels from 'chartjs-plugin-datalabels';
+
 import DefaultTemplate from '../layouts/DefaultLayout';
 import { supabase } from '../helpers';
 import AddPriority from '../components/AddPriority';
 import PriorityList from '../components/PriorityList';
+import PrioritiesComponent from '../components/Priorities';
 
 const Priorities = () => {
     document.title = 'Priorities - Joseph Abell';
   const [data, setData] = createSignal([]);
+  const [priorityToEdit, setPriorityToEdit] = createSignal();
+  const [password, setPassword] = createSignal('');
+  const [correctPassword, setCorrectPassword] = createSignal(false)
 
   const getData = async () => {
     const { data, error } = await supabase
         .from('priorities')
-        .select('*');
+        .select('*')
+        .eq('hidden', false);
 
-    const results = data.map(i => ({label: i.name, x: i.urgency, y: i.importance, hidden: i.hidden, id: i.id })).filter(i => !i.hidden);
+    const results = data.map(i => ({
+        label: i.name,
+        x: i.urgency,
+        y: i.importance,
+        hidden: i.hidden,
+        id: i.id
+    }));
 
     if (error) {
         console.error('Error fetching priorities:', error);
@@ -38,55 +48,45 @@ const Priorities = () => {
     await getData();
   }
 
+  const editPriority = (id?: number) => setPriorityToEdit(id);
+  const clearId = () => setPriorityToEdit(undefined);
+  const onPasswordSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const response = await fetch('https://n3e3scnpgb.execute-api.eu-north-1.amazonaws.com/default/password', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'text/plain',
+        },
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify({ input: password })
+    });
+    const isCorrectPassword = await response.text()
+    console.log(isCorrectPassword);
+  }
+
   return (
     <DefaultTemplate>
-        <div style={{ display: 'flex', 'justify-content': 'space-between', 'padding-top': '40px'}}>
-            <div style={{ height: '500px'}}>
-                <h2>Priorities</h2>
-                <DefaultChart
-                    type='scatter'
-                    data={{
-                        datasets: [
-                            {
-                                data: data(),
-                                backgroundColor: 'rgb(255, 99, 122)',
-                            }
-                        ]
-                    }}
-                    options={{
-                        animation: false,
-                        responsive: false,
-                        scales: {
-                            x: {
-                                type: 'linear',
-                                min: 0,
-                                max: 5,
-                                title: { text: 'Urgency', display: true, },
-                                beginAtZero: true,
-                            },
-                            y: {
-                                type: 'linear',
-                                min: 0,
-                                max: 5,
-                                title: { text: 'Importance', display: true, },
-                                beginAtZero: true
-                            }
-                        },
-                        plugins: {
-                            datalabels: {
-                                align: 'left',
-                                formatter: (data: any) => {
-                                    return data.label;
-                                }
-                            }
-                        }
-                    }}
-                    plugins={[DataLabels]}
-                />
+        <Show when={correctPassword()}>
+            <div style={{ display: 'flex', 'justify-content': 'space-between'}}>
+                <AddPriority refreshData={getData} id={priorityToEdit} clearId={clearId} />
+                <PrioritiesComponent data={data} />
+                <PriorityList priorities={data} markAsDone={markAsDone} editPriority={editPriority} />
             </div>
-            <PriorityList priorities={data} markAsDone={markAsDone} />
-            <AddPriority refreshData={getData}/>
-        </div>
+        </Show>
+
+        <Show when={!correctPassword()}>
+            <h1>Password Locked</h1>
+
+            <form onSubmit={onPasswordSubmit}>
+                <div>
+                    <label style={{display: 'block'}} for='password'>Password</label>
+                    <input type='password' id='password' name='password' onChange={(e) => {setPassword(e.target.value)}} />
+                </div>
+            </form>
+        </Show>
+        
     </DefaultTemplate>
   );
 };
