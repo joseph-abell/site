@@ -185,9 +185,9 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.666rem;
   color: inherit;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI",
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI",
     "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  
   text-rendering: optimizeLegibility;
   font-size: 2rem;
   line-height: 1.1;
@@ -203,9 +203,9 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.666rem;
   color: inherit;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI",
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI",
     "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  
   text-rendering: optimizeLegibility;
   font-size: 1.51572rem;
   line-height: 1.1;
@@ -221,9 +221,9 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.666rem;
   color: inherit;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI",
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI",
     "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  
   text-rendering: optimizeLegibility;
   font-size: 1.31951rem;
   line-height: 1.1;
@@ -239,9 +239,9 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.666rem;
   color: inherit;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI",
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI",
     "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  
   text-rendering: optimizeLegibility;
   font-size: 1rem;
   line-height: 1.1;
@@ -257,9 +257,9 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.666rem;
   color: inherit;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI",
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI",
     "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  
   text-rendering: optimizeLegibility;
   font-size: 0.87055rem;
   line-height: 1.1;
@@ -275,9 +275,9 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.666rem;
   color: inherit;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI",
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI",
     "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  
   text-rendering: optimizeLegibility;
   font-size: 0.81225rem;
   line-height: 1.1;
@@ -449,7 +449,7 @@ footer {
   background: linear-gradient(to bottom, #0072c6, #005d9c);
   color: rgba(255, 255, 255, 0.8);
   padding: 20px 60px;
-  font-family: "Montserrat", serif;
+  font-family: "Open Sans", serif;
   font-size: 16px;
 
   a {
@@ -477,7 +477,8 @@ header {
   background: linear-gradient(to bottom, #0072c6, #005d9c);
   color: rgba(255, 255, 255, 0.8);
   padding: 0 20px;
-  font-family: "Montserrat", serif;
+  font-family: "Open Sans", serif;
+  
 
   .primary {
     line-height: 33px;
@@ -555,6 +556,7 @@ header {
 
   .logo {
     font-size: 3rem;
+    
   }
 }
 
@@ -587,7 +589,7 @@ button,
   border-radius: 2px;
   border: 0;
   padding: 5px 20px;
-  font-family: "Monserrat", "Avenir Next", "Helvetica Neue", "Segoe UI";
+  font-family: "Open Sans", "Avenir Next", "Helvetica Neue", "Segoe UI";
   text-decoration: none;
 }
 
