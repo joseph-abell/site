@@ -1,7 +1,7 @@
 exports.handler = async (event) => {
     const { userInput, ...rest } = JSON.parse(event.body);
     const isPassword = userInput?.toLowerCase() === "potato";
-
+    console.log(userInput, rest);
     return {
       statusCode: 200,
       headers: {
