@@ -5,7 +5,7 @@ const PriorityList = (props: any) => {
     <div>
         <h2>Suggested Priority Order</h2>
         <ul>
-            <For each={props.priorities().sort((a: any, b: any) => (b.x * b.y) - (a.x * a.y))}>
+            <For each={props.priorities}>
                 {(priority) => (
                     <li>
                         {priority.label}

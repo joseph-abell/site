@@ -1,4 +1,4 @@
-import { Show, createSignal, onMount } from 'solid-js';
+import { Show, createSignal, createEffect, onMount } from 'solid-js';
 import { Chart, Title, Tooltip, Legend, Colors, PointElement, LinearScale} from 'chart.js'
 
 import DefaultTemplate from '../layouts/DefaultLayout';
@@ -10,8 +10,12 @@ import PrioritiesComponent from '../components/Priorities';
 const Priorities = () => {
     document.title = 'Priorities - Joseph Abell';
   const [data, setData] = createSignal([]);
+  const [sortedData, setSortedData] = createSignal([]);
   const [priorityToEdit, setPriorityToEdit] = createSignal();
-  const [password, setPassword] = createSignal('');
+
+  createEffect(() => {
+    setSortedData(data().sort((a: any, b: any) => (b.x * b.y) - (a.x * a.y)))
+  });
 
   const getData = async () => {
     const { data, error } = await supabase
@@ -48,14 +52,14 @@ const Priorities = () => {
   }
 
   const editPriority = (id?: number) => setPriorityToEdit(id);
-  const clearId = () => setPriorityToEdit(undefined);
+  const clearPriority = () => setPriorityToEdit(undefined);
 
   return (
     <DefaultTemplate>
         <div style={{ display: 'flex', 'justify-content': 'space-between'}}>
-            <AddPriority refreshData={getData} id={priorityToEdit} clearId={clearId} />
-            <PrioritiesComponent data={data} />
-            <PriorityList priorities={data} markAsDone={markAsDone} editPriority={editPriority} />
+            <AddPriority refreshData={getData} id={priorityToEdit} clearId={clearPriority} />
+            <PrioritiesComponent data={sortedData()} />
+            <PriorityList priorities={sortedData()} markAsDone={markAsDone} editPriority={editPriority} />
         </div>
         
     </DefaultTemplate>

@@ -10,7 +10,7 @@ const Priorities = (props: any) => {
                 data={{
                     datasets: [
                         {
-                            data: props.data(),
+                            data: props.data,
                             backgroundColor: 'rgb(255, 99, 122)',
                         }
                     ]
