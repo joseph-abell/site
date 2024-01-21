@@ -659,6 +659,10 @@ button,
     .button {
       background: linear-gradient(to bottom, #0072c6, #005d9c);
       color: #e5e5e5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 
@@ -715,6 +719,10 @@ button,
     .button {
       background: linear-gradient(to bottom, #0072c6, #005d9c);
       color: #e5e5e5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 
@@ -766,6 +774,10 @@ button,
     .button {
       background: linear-gradient(to bottom, #c60072, #9c005d);
       color: #e5e5e5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 
@@ -818,6 +830,10 @@ button,
     .button {
       background: linear-gradient(to bottom, #c60072, #9c005d);
       color: #e5e5e5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 
@@ -870,6 +886,10 @@ button,
     .button {
       background: #c54566;
       color: #fbfce5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 
@@ -922,6 +942,10 @@ button,
     .button {
       background: #b5672c;
       color: #fbfce5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 
@@ -974,6 +998,10 @@ button,
     .button {
       background: #03916a;
       color: #fbfce5;
+
+      &:disabled, &[disabled] {
+        background: #ddd;
+      }
     }
   }
 

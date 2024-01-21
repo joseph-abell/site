@@ -7,6 +7,7 @@ const MedicineTracker = () => {
   const [breakfast, setBreakfast] = createSignal(false);
   const [lunch, setLunch] = createSignal(false);
   const [dinner, setDinner] = createSignal(false);
+  const [disabled, setDisabled] = createSignal(true);
 
   const fetchMedicineIntake = async () => {
     const { data, error } = await supabase
@@ -23,6 +24,7 @@ const MedicineTracker = () => {
         setBreakfast(breakfast);
         setLunch(lunch);
         setDinner(dinner);
+        setDisabled(false);
       }
     }
   };
@@ -31,6 +33,7 @@ const MedicineTracker = () => {
 
   const onFormSubmit = async (e: any) => {
     e.preventDefault();
+    setDisabled(true);
 
     await supabase.from('medicineTracker').upsert([
       {
@@ -40,6 +43,10 @@ const MedicineTracker = () => {
         dinner: dinner(),
       },
     ]).select();
+    setDisabled(false);
+
+    const url = `${document.location.origin}/doodles/meds`;
+    document.location = url;
   };
 
   // Return your component UI here
@@ -69,7 +76,7 @@ const MedicineTracker = () => {
             </p>
 
             <p>
-                <button type="submit">Submit</button>
+                <button type="submit" disabled={disabled()}>Submit</button>
             </p>
         </form>
     </DefaultLayout>
