@@ -7,7 +7,7 @@ const MedicineTracker = () => {
   const [breakfast, setBreakfast] = createSignal(false);
   const [lunch, setLunch] = createSignal(false);
   const [dinner, setDinner] = createSignal(false);
-  const [disabled, setDisabled] = createSignal(true);
+  const [disabled, setDisabled] = createSignal(false);
 
   const fetchMedicineIntake = async () => {
     const { data, error } = await supabase
