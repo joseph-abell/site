@@ -5,13 +5,18 @@ import { supabase } from '../helpers';
 const Row = (props: any) => {
     const rowHeight = 7;
     const y = props.index() * 3 * rowHeight;
-return (
-    <g>
-        <line x1="0" y1={y + rowHeight * 0.5} x2="100%" y2={y + 1} stroke={props.row.breakfast ? 'yellow' : 'black'} stroke-width={rowHeight} />
-        <line x1="0" y1={y + (rowHeight * 0.5) + rowHeight} x2="100%" y2={y + rowHeight} stroke={props.row.lunch ? 'blue' : 'black'} stroke-width={rowHeight} />
-        <line x1="0" y1={y + (rowHeight * 0.5) + (rowHeight * 2)} x2="100%" y2={y + (rowHeight * 2)} stroke={props.row.dinner ? 'red' : 'black'} stroke-width={rowHeight} />
-    </g>
-) }
+    const breakfastHeight = y + (rowHeight * 0.5);
+    const lunchHeight = y + (rowHeight * 0.5) + rowHeight;
+    const dinnerHeight = y + (rowHeight * 0.5) + (rowHeight * 2);
+
+    return (
+        <g>
+            <line x1="0" y1={breakfastHeight} x2="100%" y2={breakfastHeight} stroke={props.row.breakfast ? 'moccasin' : 'black'} stroke-width={rowHeight} />
+            <line x1="0" y1={lunchHeight} x2="100%" y2={lunchHeight} stroke={props.row.lunch ? 'deepskyblue' : 'black'} stroke-width={rowHeight} />
+            <line x1="0" y1={dinnerHeight} x2="100%" y2={dinnerHeight} stroke={props.row.dinner ? 'tomato' : 'black'} stroke-width={rowHeight} />
+        </g>
+    )
+}
 
 const SVG = (props: any) => {
     return (<>
