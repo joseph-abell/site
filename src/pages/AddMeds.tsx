@@ -1,6 +1,7 @@
 import DefaultLayout from "../layouts/DefaultLayout";
 import { createSignal, onMount } from 'solid-js';
 import { supabase } from '../helpers';
+import CircleInput from "../components/CircleInput";
 
 const MedicineTracker = () => {
   const id = new Date().toISOString().split('T')[0];
@@ -8,6 +9,7 @@ const MedicineTracker = () => {
   const [lunch, setLunch] = createSignal(false);
   const [dinner, setDinner] = createSignal(false);
   const [disabled, setDisabled] = createSignal(false);
+  const [carbs, setCarbs] = createSignal(0);
 
   const fetchMedicineIntake = async () => {
     const { data, error } = await supabase
@@ -20,10 +22,11 @@ const MedicineTracker = () => {
       console.error('Error fetching medicine intake:', error);
     } else {
       if (data) {
-        const { breakfast, lunch, dinner } = data;
+        const { breakfast, lunch, dinner, carbs } = data;
         setBreakfast(breakfast);
         setLunch(lunch);
         setDinner(dinner);
+        setCarbs(carbs)
         setDisabled(false);
       }
     }
@@ -41,6 +44,7 @@ const MedicineTracker = () => {
         breakfast: breakfast(),
         lunch: lunch(),
         dinner: dinner(),
+        carbs: carbs(),
       },
     ]).select();
     setDisabled(false);
@@ -73,6 +77,13 @@ const MedicineTracker = () => {
                     <input type="checkbox" checked={dinner()} onChange={() => setDinner(!dinner())} />
                     Dinner
                 </label>
+            </p>
+
+            <p>
+              <label>
+                <CircleInput value={carbs} setValue={setCarbs} />
+                Carbs
+              </label>
             </p>
 
             <p>
