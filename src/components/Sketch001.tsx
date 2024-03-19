@@ -1,6 +1,6 @@
 import * as p5 from "p5";
 
-const Sketch001 = () => {
+const Sketch = () => {
   let x = 100;
   let y = 100;
   let width = 200;
@@ -34,4 +34,4 @@ const Sketch001 = () => {
   return <div ref={( el ) => createSketch( el )} />;
 };
 
-export default Sketch001;
+export default Sketch;

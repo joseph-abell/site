@@ -1,7 +1,7 @@
 import * as p5 from "p5";
 import { Vector } from '../helpers';
 
-const Sketch003 = () => {
+const Sketch = () => {
   let width = 200;
   let height = 200;
   let v = new Vector( 100, 100 );
@@ -38,4 +38,4 @@ const Sketch003 = () => {
   return <div ref={( el ) => createSketch( el )} />;
 };
 
-export default Sketch003;
+export default Sketch;

@@ -4,6 +4,7 @@ import Sketch003 from '../components/Sketch003';
 import Sketch004 from "../components/Sketch004";
 import Sketch005 from '../components/Sketch005';
 import Sketch006 from '../components/Sketch006';
+import Sketch007 from '../components/Sketch007';
 import DefaultLayout from "../layouts/DefaultLayout";
 
 const Sketches = () => {
@@ -49,6 +50,10 @@ const Sketches = () => {
         <div style={{ width: '200px' }}>
           <Sketch006 />
           <p>Click sketch, then use WASD to control ball</p>
+        </div>
+        <div style={{ width: '200px' }}>
+          <Sketch007 />
+          <p>Snake</p>
         </div>
       </div>
     </DefaultLayout>
