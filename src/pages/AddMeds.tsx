@@ -4,7 +4,9 @@ import { supabase } from '../helpers';
 import CircleInput from "../components/CircleInput";
 
 const MedicineTracker = () => {
-  const id = new Date().toISOString().split('T')[0];
+
+  const [id, setId] = createSignal(new Date().toLocaleString().split(',')[0].split('/').reverse().join('-'));
+  const [idInput, setIdInput] = createSignal('');
   const [breakfast, setBreakfast] = createSignal(false);
   const [lunch, setLunch] = createSignal(false);
   const [dinner, setDinner] = createSignal(false);
@@ -12,12 +14,14 @@ const MedicineTracker = () => {
   const [carbs, setCarbs] = createSignal(0);
 
   const fetchMedicineIntake = async () => {
+
     const { data, error } = await supabase
       .from('medicineTracker')
       .select()
-      .eq('id', id)
+      .eq('id', id())
       .maybeSingle();
 
+      console.log('fetchMedicineIntake', id(), data);
     if (error) {
       console.error('Error fetching medicine intake:', error);
     } else {
@@ -40,7 +44,7 @@ const MedicineTracker = () => {
 
     await supabase.from('medicineTracker').upsert([
       {
-        id,
+        id: id(),
         breakfast: breakfast(),
         lunch: lunch(),
         dinner: dinner(),
@@ -53,43 +57,59 @@ const MedicineTracker = () => {
     document.location = url;
   };
 
+  const onIdInput = (e: any) => {
+    setIdInput(e.currentTarget.value);
+  }
+
+  const onIdSubmit = (e: any) => {
+    e.preventDefault();
+
+    setId(idInput());
+    fetchMedicineIntake();
+  }
+
   // Return your component UI here
   return (
     <DefaultLayout>
-        <h1>{id}</h1>
-        <form onSubmit={onFormSubmit}>
-            <p>
-                <label>
-                    <input type="checkbox" checked={breakfast()} onChange={() => setBreakfast(!breakfast())} />
-                    Breakfast
-                </label>
-            </p>
-        
-            <p>
-                <label>
-                    <input type="checkbox" checked={lunch()} onChange={() => setLunch(!lunch())} />
-                    Lunch
-                </label>
-            </p>
-        
-            <p>
-                <label>
-                    <input type="checkbox" checked={dinner()} onChange={() => setDinner(!dinner())} />
-                    Dinner
-                </label>
-            </p>
+      <h1>{id()}</h1>
+      <form onSubmit={onIdSubmit}>
+        <input type='text' value={idInput()} onInput={onIdInput} />
+        <button type='submit'>Go</button>
+      </form>
 
-            <p>
-              <label>
-                <CircleInput value={carbs} setValue={setCarbs} />
-                Carbs
-              </label>
-            </p>
+      <form onSubmit={onFormSubmit}>
+        <p>
+          <label>
+            <input type="checkbox" checked={breakfast()} onChange={() => setBreakfast(!breakfast())} />
+            Breakfast
+          </label>
+        </p>
 
-            <p>
-                <button type="submit" disabled={disabled()}>Submit</button>
-            </p>
-        </form>
+        <p>
+          <label>
+            <input type="checkbox" checked={lunch()} onChange={() => setLunch(!lunch())} />
+            Lunch
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" checked={dinner()} onChange={() => setDinner(!dinner())} />
+            Dinner
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <CircleInput value={carbs} setValue={setCarbs} />
+            Carbs
+          </label>
+        </p>
+
+        <p>
+          <button type="submit" disabled={disabled()}>Submit</button>
+        </p>
+      </form>
     </DefaultLayout>
   );
 };
