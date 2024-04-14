@@ -61,7 +61,6 @@ const Priorities = () => {
             <PrioritiesComponent data={sortedData()} />
             <PriorityList priorities={sortedData()} markAsDone={markAsDone} editPriority={editPriority} />
         </div>
-        
     </DefaultTemplate>
   );
 };
