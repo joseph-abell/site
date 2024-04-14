@@ -1,4 +1,4 @@
-import { Show, createSignal, createEffect, onMount } from 'solid-js';
+import { createSignal, createEffect, onMount } from 'solid-js';
 import { Chart, Title, Tooltip, Legend, Colors, PointElement, LinearScale} from 'chart.js'
 
 import DefaultTemplate from '../layouts/DefaultLayout';

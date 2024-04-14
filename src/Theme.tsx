@@ -1,4 +1,4 @@
-import { createContext, useContext, ParentComponent } from "solid-js";
+import { createContext, useContext } from "solid-js";
 import { createStore } from "solid-js/store";
 
 const ThemeContext = createContext<[{ theme: string }, { setTheme: Function }]>(

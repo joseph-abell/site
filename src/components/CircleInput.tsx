@@ -1,6 +1,5 @@
-import { createSignal, createEffect, onMount } from 'solid-js';
-import { onCleanup } from 'solid-js';
-import { Pie } from 'solid-chartjs'; // Import Pie from solid-chartjs
+import { createSignal, createEffect } from 'solid-js';
+import { Pie } from 'solid-chartjs';
 import './CircleInput.scss';
 
 const CircleInput = (props: any) => {
