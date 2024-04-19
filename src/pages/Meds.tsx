@@ -2,9 +2,10 @@ import { createResource, For } from 'solid-js'
 import DefaultLayout from "../layouts/DefaultLayout";
 import { supabase } from '../helpers';
 
+const rowHeight = 3;
+const colourCount = 3;
 const Row = (props: any) => {
-    const rowHeight = 7;
-    const y = props.index() * 3 * rowHeight;
+    const y = props.index() * colourCount * rowHeight;
     const breakfastHeight = y + (rowHeight * 0.5);
     const lunchHeight = y + (rowHeight * 0.5) + rowHeight;
     const dinnerHeight = y + (rowHeight * 0.5) + (rowHeight * 2);
@@ -20,7 +21,7 @@ const Row = (props: any) => {
 
 const SVG = (props: any) => {
     return (<>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height={props.days().length * 3 * 10} style={{ position: 'absolute', 'z-index': 0 }}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height={props.days().length * colourCount * rowHeight} style={{ position: 'absolute', 'z-index': 0 }}>
         {<For each={props.days()}>{(row: any, index) => (
             <Row row={row} index={index} />)}
         </For>} 
@@ -48,7 +49,7 @@ const HorizontalLinesSVG = () => {
                     days={days}
                     style={{
                         width: '100%',
-                        height: `${days().length * 3 * 10}px`,
+                        height: `${days().length * colourCount * rowHeight}px`,
 
                     }}
                 />)}
