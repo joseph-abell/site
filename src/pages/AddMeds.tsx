@@ -4,14 +4,12 @@ import { supabase } from '../helpers';
 import CircleInput from "../components/CircleInput";
 
 const MedicineTracker = () => {
-
   const [id, setId] = createSignal(new Date().toLocaleString().split(',')[0].split('/').reverse().join('-'));
   const [idInput, setIdInput] = createSignal('');
   const [breakfast, setBreakfast] = createSignal(false);
   const [lunch, setLunch] = createSignal(false);
   const [dinner, setDinner] = createSignal(false);
   const [disabled, setDisabled] = createSignal(false);
-  const [carbs, setCarbs] = createSignal(0);
 
   const fetchMedicineIntake = async () => {
 
@@ -30,7 +28,6 @@ const MedicineTracker = () => {
         setBreakfast(breakfast);
         setLunch(lunch);
         setDinner(dinner);
-        setCarbs(carbs)
         setDisabled(false);
       }
     }
@@ -48,7 +45,7 @@ const MedicineTracker = () => {
         breakfast: breakfast(),
         lunch: lunch(),
         dinner: dinner(),
-        carbs: carbs(),
+        carbs: 0,
       },
     ]).select();
     setDisabled(false);
@@ -72,6 +69,7 @@ const MedicineTracker = () => {
   return (
     <DefaultLayout>
       <h1>{id()}</h1>
+
       <form onSubmit={onIdSubmit}>
         <input type='text' value={idInput()} onInput={onIdInput} />
         <button type='submit'>Go</button>
@@ -96,13 +94,6 @@ const MedicineTracker = () => {
           <label>
             <input type="checkbox" checked={dinner()} onChange={() => setDinner(!dinner())} />
             Dinner
-          </label>
-        </p>
-
-        <p>
-          <label>
-            <CircleInput value={carbs} setValue={setCarbs} />
-            Carbs
           </label>
         </p>
 
