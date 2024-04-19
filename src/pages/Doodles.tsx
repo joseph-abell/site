@@ -19,6 +19,15 @@ const Doodles = () => {
           <a href='/doodles/sketches'>P5.js Sketches</a>
         </li>
         <li>
+          <a href='doodles/binairo'>Binairo</a>
+        </li>
+        <li>
+          <a href='doodles/sudoku'>Sudoku</a>
+        </li>
+        <li>
+          <a href='doodles/yinyang'>Yin Yang Puzzle</a>
+        </li>
+        <li>
           <a href='doodles/meds'>Medicine Tracker</a>
         </li>
       </ul>

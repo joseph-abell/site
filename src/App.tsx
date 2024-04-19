@@ -15,6 +15,9 @@ import Meds from './pages/Meds';
 
 import { ThemeProvider } from "./Theme";
 import Priorities from "./pages/Priorities";
+import Sudoku from "./pages/Sudoku";
+import Binairo from "./pages/Binairo";
+import YinYangPuzzle from "./pages/YinYang";
 
 const App = () => {
   return (
@@ -26,6 +29,9 @@ const App = () => {
             <Route path='/cv' component={CV} />
             <Route path='/add-meds' component={AddMeds} />
             <Route path='/doodles' component={Doodles} />
+            <Route path='/doodles/sudoku' component={Sudoku} />
+            <Route path='/doodles/binairo' component={Binairo} />
+            <Route path='/doodles/yinyang' component={YinYangPuzzle} />
             <Route path='/doodles/themes' component={Themes} />
             <Route path='/doodles/sketches' component={Sketches} />
             <Route path='/doodles/meds' component={Meds} />

@@ -575,6 +575,78 @@ main.main-no-padding {
   padding: 0;
 }
 
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(30px));
+  margin-inline: auto;
+  width: 450px;
+  margin-top: 50px;
+}
+
+.sudoku-row {
+  display: flex;
+}
+
+.sudoku-cell {
+  width: 50px;
+  height: 50px;
+  border: solid 1px #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+  font-size: 2em;
+  font-family: sans-serif;
+  line-height: 50px;
+}
+
+.sudoku-cell:hover {
+  background-color: lightgray;
+}
+
+.sudoku-cell.selected {
+  background-color: rgb(220, 220, 255);
+}
+
+.sudoku-cell.border-bottom-thick {
+  border-bottom: solid 3px #ddd;
+}
+
+.sudoku-cell.border-right-thick {
+  border-right: solid 3px #ddd;
+}
+
+.yin-yang {
+  width: 330px;
+  height: 330px;
+  margin: 100px auto;
+
+  .row {
+    height: 30px;
+  }
+  .cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+
+    &.white {
+      background: white;
+    }
+
+    &.blue {
+      background: blue;
+    }
+
+    &.orange {
+      background: orange;
+    }
+  }
+}
+
 .meds-container {
   padding: 20px;
   width: 80vw;
