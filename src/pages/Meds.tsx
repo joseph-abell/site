@@ -4,6 +4,7 @@ import { supabase } from '../helpers';
 
 const rowHeight = 3;
 const colourCount = 3;
+
 const Row = (props: any) => {
     const y = props.index() * colourCount * rowHeight;
     const breakfastHeight = y + (rowHeight * 0.5);
@@ -36,7 +37,9 @@ const HorizontalLinesSVG = () => {
     }
 
     const [days] = createResource(fetchData);
-    document.title = 'Meds - Joseph Abell'
+
+    document.title = 'Meds - Joseph Abell';
+
     return (
         <DefaultLayout customBackground={true} noMargin={true}>
             <div style={{
@@ -53,7 +56,14 @@ const HorizontalLinesSVG = () => {
 
                     }}
                 />)}
-                <div class="container meds-container" style={{ position: 'absolute', 'z-index': 1, left: '50vw', 'margin-left': '-40vw', 'margin-top': '40px', 'border': '2px solid #333' }}>
+                <div class="container meds-container" style={{
+                    position: 'absolute',
+                    'z-index': 1,
+                    left: '50vw',
+                    'margin-left': '-40vw',
+                    'margin-top': '40px',
+                    'border': '2px solid #333'
+                }}>
                     <h1>Medicine Tracker</h1>
 
                     <p>Each of these lines in the background show me successfully taking my diabetes medication. Yellow is for breakfast, blue is for lunch, and red is for dinner. If there are any black gaps, it shows a time where I forgot to take my meds. If the lines are in the first three lines, odds are it's because it's not time to take my meds yet.</p>
