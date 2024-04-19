@@ -8,7 +8,8 @@ import PriorityList from '../components/PriorityList';
 import PrioritiesComponent from '../components/Priorities';
 
 const Priorities = () => {
-    document.title = 'Priorities - Joseph Abell';
+  document.title = 'Priorities - Joseph Abell';
+  
   const [data, setData] = createSignal([]);
   const [sortedData, setSortedData] = createSignal([]);
   const [priorityToEdit, setPriorityToEdit] = createSignal();

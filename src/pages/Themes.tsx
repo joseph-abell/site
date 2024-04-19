@@ -4,6 +4,7 @@ import { useTheme } from "../Theme";
 const Themes = () => {
   const [_, { setTheme }] = useTheme();
   document.title = 'Themes - Joseph Abell'
+
   return (
     <DefaultLayout>
       <h1>Themes</h1>

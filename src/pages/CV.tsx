@@ -2,6 +2,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 
 const CV = () => {
   document.title = 'CV: Joseph Abell';
+
   return (
     <DefaultLayout>
       <h1>CV - Joseph Abell</h1>

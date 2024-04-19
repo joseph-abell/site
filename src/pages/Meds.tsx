@@ -20,15 +20,13 @@ const Row = (props: any) => {
     )
 }
 
-const SVG = (props: any) => {
-    return (<>
+const SVG = (props: any) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height={props.days().length * colourCount * rowHeight} style={{ position: 'absolute', 'z-index': 0 }}>
         {<For each={props.days()}>{(row: any, index) => (
             <Row row={row} index={index} />)}
         </For>} 
     </svg>
-    </>
-)}
+);
 
 const HorizontalLinesSVG = () => {
     async function fetchData() {
@@ -48,14 +46,16 @@ const HorizontalLinesSVG = () => {
                 background: '#333',
                 position: 'relative'
             }}>
-                {days() && (<SVG
-                    days={days}
-                    style={{
-                        width: '100%',
-                        height: `${days().length * colourCount * rowHeight}px`,
+                {days() && (
+                    <SVG
+                        days={days}
+                        style={{
+                            width: '100%',
+                            height: `${days().length * colourCount * rowHeight}px`,
 
-                    }}
-                />)}
+                        }}
+                    />
+                )}
                 <div class="container meds-container" style={{
                     position: 'absolute',
                     'z-index': 1,

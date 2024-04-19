@@ -9,6 +9,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 
 const Sketches = () => {
   document.title = 'P5 Sketches - Joseph Abell'
+
   return (
     <DefaultLayout>
       <h1>P5.js Sketches</h1>
