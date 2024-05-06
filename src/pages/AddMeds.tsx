@@ -19,7 +19,7 @@ const MedicineTracker = () => {
       .eq('id', id())
       .maybeSingle();
 
-      console.log('fetchMedicineIntake', id(), data);
+    console.log('fetchMedicineIntake', id(), data);
     if (error) {
       console.error('Error fetching medicine intake:', error);
     } else {
