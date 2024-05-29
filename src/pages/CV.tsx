@@ -43,7 +43,7 @@ const CV = () => {
         them improve, rather than being the only person able to do a job.</p>
 
       <p>Outside of work, I study management techniques, and keep my skills up to date by making small
-        websites to test out new tech stacks. I also spend my time listening to history audiobooks while looking after the kids.</p>
+        websites to test out new tech stacks. I also spend my time listening to history audiobooks, and looking after the kids.</p>
 
       <h2>Contact</h2>
 
