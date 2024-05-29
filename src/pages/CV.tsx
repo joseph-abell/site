@@ -71,9 +71,9 @@ const CV = () => {
 
       <p>My role at Tesco Bank changed rapidly from a full stack developer into leading
         my own team, code shepherding, mentoring and organising work for 8 devs and 6 QA.
-        We are rewriting the Motor Insurance onboarding form using internal tools
+        We rewrote the Motor Insurance onboarding form using internal tools
         built on Node and React as the primary technologies. My favourite parts of this role
-        are less on the code, more on mentoring, organising the team so we don't trip over
+        were less on the code, more on mentoring, organising the team so we didn't trip over
         each other's work, and managing team members.</p>
 
       <h3>Isotoma - Full Stack Typescript Developer</h3>
