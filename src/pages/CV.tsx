@@ -1,15 +1,49 @@
 import DefaultLayout from "../layouts/DefaultLayout";
 
+const calculateYearsOfExperience = (startDate: Date) => {
+  // Get the current date
+  const currentDate = new Date();
+
+  // Calculate the difference in milliseconds
+  const diffInMilliseconds = currentDate.getTime() - startDate.getTime();
+
+  // Convert the difference to years
+  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+
+  // Round down to the nearest integer
+  const yearsOfExperience = Math.floor(diffInYears);
+
+  return yearsOfExperience;
+}
+
 const CV = () => {
   document.title = 'CV: Joseph Abell';
+
+  const yearsExperience = calculateYearsOfExperience(new Date(2012, 11, 1));
 
   return (
     <DefaultLayout>
       <h1>CV - Joseph Abell</h1>
 
-      <p>I'm Joseph Abell, a Lead Software Engineer with 11 years experience. I'm currently working at Tesco Bank in a remote role. I also develop websites for my wife's company, Abell Design, when time allows.</p>
+      <p>I'm Joseph Abell, a Lead Software Engineer with {yearsExperience} years experience.
+        I'm currently working at Tesco Bank in a remote role. I occasionally develop websites
+        for my wife's company, Abell Design, when time allows.</p>
 
-      <p>I've been learning both SolidJS and Rust, and they are becoming my favourite tools to work with.</p>
+      <p>Typically, you'll find me providing context for technical decisions, unblocking
+        engineers when something stretches their ability, training, running
+        knowledge sharing meetings, and managing Engineers. I am the spokesperson for technical
+        quality. I uphold coding standards and testing coverage. I am the point of contact when
+        people need to know who to speak to to solve problems. I attend leadership meetings to make
+        sure the team is working towards the company's wider goals. I rarely write code inside work
+        hours, but I do a lot of code reviews.</p>
+
+      <p>I find myself using curiosity and empathy on an hourly basis. I try my best to understand
+        problems before I deliver solutions, and I try to leave room for others to grow in their skills,
+        rather than delivering work that others can do. I'd rather spend the time coaching others and watching
+        them improve, rather than being the only person able to do a job.</p>
+
+      <p>Outside of work, I study management techniques, and keep my skills up to date by making small
+        websites to test out new tech stacks. I also spend my time looking listening to history audiobooks while looking after the kids.</p>
 
       <h2>Contact</h2>
 
@@ -21,13 +55,15 @@ const CV = () => {
 
       <p>Sep 2023 - Current</p>
 
-      <p>My current role at Tesco Bank is to be Engineering Lead for the Savings and Debit
-        Card teams. As a relatively new member of this team, I'm learning how to do the
-        job my way. My main focus is to help grow the team in size and knowledge of agile
-        methodologies, to be the main spokesperson for the technology we use, and do make
-        sure that people within the team find working at Tesco Bank to be fulfilling and
-        worthwhile. If I write code at all, it is to unblock thorny problems for others,
-        and let them take over when the work becomes manageable.</p>
+      <p>My current role at Tesco Bank is to be Engineering Lead for the Spend and Save
+        team. For more information about this role, read my introduction above.</p>
+
+      <p>I helped shape a team whose members were moving from different areas of the company, into a calm and supportive unit.
+        Over the first eight months with the team, we have switched to working in an Agile methodology,
+        have moved from using EC2 instances for deliver to Kubernetes, and every member of the team can deliver
+        quality work from inception to pushing to production servers. The team have moved from in in house tech
+        stack to NextJS, and are at the point of squashing final bugs before we go live. We've
+        achieved a lot, and I'm grateful to be supporting the team.</p>
 
       <h3>Tesco Bank - Senior Software Engineer</h3>
 
