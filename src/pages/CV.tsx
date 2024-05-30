@@ -62,8 +62,7 @@ const CV = () => {
         Over the first eight months with the team, we have switched to working in an Agile methodology,
         have moved from using EC2 instances for deliver to Kubernetes, and every member of the team can deliver
         quality work from inception to pushing to production servers. The team have moved from in in house tech
-        stack to NextJS, and are at the point of squashing final bugs before we go live. We've
-        achieved a lot, and I'm grateful to be supporting the team.</p>
+        stack to NextJS.</p>
 
       <h3>Tesco Bank - Senior Software Engineer</h3>
 
