@@ -29,10 +29,10 @@ const CV = () => {
         I'm currently working at Tesco Bank in a remote role. I occasionally develop websites
         for my wife's company, Abell Design, when time allows.</p>
 
-      <p>Typically, you'll find me providing context for technical decisions, unblocking
-        engineers when something stretches their ability, training, running
+      <p>Typically, you'll find me providing context for technical decisions to all members of the team,
+        unblocking engineers when something stretches their ability, training, running
         knowledge sharing meetings, and managing Engineers. I am the spokesperson for technical
-        quality. I uphold coding standards and testing coverage. I am the point of contact when
+        quality for Web and Mobile. I uphold coding standards and testing coverage. I am the point of contact when
         people need to know who to speak to to solve problems. I attend leadership meetings to make
         sure the team is working towards the company's wider goals. I rarely write code inside work
         hours, but I do a lot of code reviews.</p>
